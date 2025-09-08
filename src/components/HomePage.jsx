@@ -11,14 +11,15 @@ function HomePage({ isDarkMode }) {
         {
             name: 'RuvAI',
             description: 'Deployable AI agents with vector search and decentralized inference via Bittensor.',
-            technologies: ['Python','FastAPI', 'Bittensor', 'Vector Search'],
+            technologies: ['Python','FastAPI', 'Bittensor', 'Vector Search', 'RAG'],
+            // link: '',
         },
         {
             name: 'UbiquitousInfluence',
             description: 'Automated influencer payouts to close the loop from engagement to payment.',
             technologies: ['Node.Js','GraphQL/AppSync', 'Lambda', 'MongoDB', 'Stripe'],
             link:'https://www.ubiquitousinfluence.com/'
-        },
+        }
     ];
 
     return (
@@ -79,7 +80,7 @@ function HomePage({ isDarkMode }) {
                     <h4 className={`text-3xl font-bold mb-8 ${
                         isDarkMode ? 'text-white' : 'text-gray-800'
                     }`}>
-                        Things I’m Proud Of
+                        Signature Works:
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {projects.map((project, index) => (
