@@ -22,6 +22,40 @@ function HomePage({ isDarkMode }) {
         }
     ];
 
+    const skills = {
+        'Web Development': ['JavaScript', 'React', 'Node.js', 'GraphQL', 'WebSockets'],
+        'AI & Machine Learning': ['Python', 'FastAPI', 'Bittensor', 'Vector Search', 'LLM', 'RAG', 'OpenAI'],
+        'Database & Storage': ['MongoDB', 'SQL', 'PostgreSQL', 'Neo4j', 'Qdrant'],
+        'Cloud & DevOps': ['AWS', 'Docker', 'Kubernetes', 'Git']
+    };
+
+    const getSkillColor = (skill) => {
+        const skillLower = skill.toLowerCase();
+        if (skillLower.includes('javascript') || skillLower.includes('react') || skillLower.includes('node')) {
+            return isDarkMode 
+                ? 'bg-yellow-900/40 border border-yellow-500/50 text-yellow-300 shadow-sm shadow-yellow-500/20' 
+                : 'bg-yellow-100 border border-yellow-400 text-yellow-700 shadow-sm shadow-yellow-400/20';
+        }
+        if (skillLower.includes('python') || skillLower.includes('fastapi') || skillLower.includes('bittensor')) {
+            return isDarkMode 
+                ? 'bg-blue-900/40 border border-blue-500/50 text-blue-300 shadow-sm shadow-blue-500/20' 
+                : 'bg-blue-100 border border-blue-400 text-blue-700 shadow-sm shadow-blue-400/20';
+        }
+        if (skillLower.includes('aws') || skillLower.includes('docker') || skillLower.includes('kubernetes')) {
+            return isDarkMode 
+                ? 'bg-orange-900/40 border border-orange-500/50 text-orange-300 shadow-sm shadow-orange-500/20' 
+                : 'bg-orange-100 border border-orange-400 text-orange-700 shadow-sm shadow-orange-400/20';
+        }
+        if (skillLower.includes('mongodb') || skillLower.includes('sql') || skillLower.includes('graphql')) {
+            return isDarkMode 
+                ? 'bg-green-900/40 border border-green-500/50 text-green-300 shadow-sm shadow-green-500/20' 
+                : 'bg-green-100 border border-green-400 text-green-700 shadow-sm shadow-green-400/20';
+        }
+        return isDarkMode 
+            ? 'bg-purple-900/40 border border-purple-500/50 text-purple-300 shadow-sm shadow-purple-500/20' 
+            : 'bg-purple-100 border border-purple-400 text-purple-700 shadow-sm shadow-purple-400/20';
+    };
+
     return (
         <div className={`min-h-screen flex items-center justify-center px-6 py-12 ${
             isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
@@ -74,6 +108,105 @@ function HomePage({ isDarkMode }) {
                             display: inline-block;
                         }
                     `}</style>
+                </div>
+
+                {/* Skills Section */}
+                <div className="mb-16">
+                    <h4 className={`text-3xl font-bold mb-8 ${
+                        isDarkMode ? 'text-white' : 'text-gray-800'
+                    }`}>
+                        Skills
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {Object.entries(skills).map(([category, skillList], index) => (
+                            <div key={index} className={`p-6 rounded-xl border-2 transition-all duration-300 hover:scale-105 ${
+                                isDarkMode 
+                                    ? 'bg-gray-800/30 border-gray-700 hover:bg-gray-800/50 hover:shadow-lg hover:shadow-blue-500/20' 
+                                    : 'bg-white/80 border-gray-200 hover:bg-white hover:shadow-lg hover:shadow-blue-500/20'
+                            }`}>
+                                <h5 className={`text-xl font-semibold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent`}>
+                                    {category}
+                                </h5>
+                                <div className="flex flex-wrap gap-3">
+                                    {skillList.map((skill, skillIndex) => (
+                                        <span 
+                                            key={skillIndex}
+                                            className={`px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 hover:scale-105 ${getSkillColor(skill)}`}
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Expertise Areas Section */}
+                <div className="mb-16">
+                    <h4 className={`text-3xl font-bold mb-8 ${
+                        isDarkMode ? 'text-white' : 'text-gray-800'
+                    }`}>
+                        Areas of Expertise
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {/* Web Application Development */}
+                        <div className={`p-6 rounded-xl border-2 transition-all duration-300 hover:scale-105 ${
+                            isDarkMode 
+                                ? 'bg-gray-800/30 border-gray-700 hover:bg-gray-800/50 hover:shadow-lg hover:shadow-green-500/20' 
+                                : 'bg-white/80 border-gray-200 hover:bg-white hover:shadow-lg hover:shadow-green-500/20'
+                        }`}>
+                            <div className="text-4xl mb-4 text-center">🌐</div>
+                            <h5 className={`text-xl font-bold mb-3 text-center ${
+                                isDarkMode ? 'text-green-400' : 'text-green-600'
+                            }`}>
+                                Web Application Development
+                            </h5>
+                            <p className={`text-sm leading-relaxed text-center ${
+                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                            }`}>
+                                Building scalable, high-performance web applications with modern frameworks and real-time capabilities.
+                            </p>
+                        </div>
+
+                        {/* AI Agents */}
+                        <div className={`p-6 rounded-xl border-2 transition-all duration-300 hover:scale-105 ${
+                            isDarkMode 
+                                ? 'bg-gray-800/30 border-gray-700 hover:bg-gray-800/50 hover:shadow-lg hover:shadow-purple-500/20' 
+                                : 'bg-white/80 border-gray-200 hover:bg-white hover:shadow-lg hover:shadow-purple-500/20'
+                        }`}>
+                            <div className="text-4xl mb-4 text-center">🤖</div>
+                            <h5 className={`text-xl font-bold mb-3 text-center ${
+                                isDarkMode ? 'text-purple-400' : 'text-purple-600'
+                            }`}>
+                                AI Agents
+                            </h5>
+                            <p className={`text-sm leading-relaxed text-center ${
+                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                            }`}>
+                                Developing intelligent AI agents with vector search, decentralized inference, and autonomous decision-making capabilities.
+                            </p>
+                        </div>
+
+                        {/* AI Integration */}
+                        <div className={`p-6 rounded-xl border-2 transition-all duration-300 hover:scale-105 ${
+                            isDarkMode 
+                                ? 'bg-gray-800/30 border-gray-700 hover:bg-gray-800/50 hover:shadow-lg hover:shadow-cyan-500/20' 
+                                : 'bg-white/80 border-gray-200 hover:bg-white hover:shadow-lg hover:shadow-cyan-500/20'
+                        }`}>
+                            <div className="text-4xl mb-4 text-center">⚡</div>
+                            <h5 className={`text-xl font-bold mb-3 text-center ${
+                                isDarkMode ? 'text-cyan-400' : 'text-cyan-600'
+                            }`}>
+                                AI Integration in Web Apps
+                            </h5>
+                            <p className={`text-sm leading-relaxed text-center ${
+                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                            }`}>
+                                Seamlessly integrating AI agents into web applications for intelligent, context-aware user experiences.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div className="mb-16">
