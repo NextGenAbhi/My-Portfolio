@@ -2,10 +2,21 @@ import { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import HomePage from "./HomePage";
+import LoadingPage from "./LoadingPage";
 
 function Layout() {
     const [activeTab, setActiveTab] = useState("home");
     const [isDarkMode, setIsDarkMode] = useState(true); // Default to dark mode
+    const [isLoading, setIsLoading] = useState(true);
+
+    const handleLoadComplete = () => {
+        setIsLoading(false);
+    };
+
+    // Show loading page first
+    if (isLoading) {
+        return <LoadingPage isDarkMode={isDarkMode} onLoadComplete={handleLoadComplete} />;
+    }
 
     const renderContent = () => {
         switch (activeTab) {

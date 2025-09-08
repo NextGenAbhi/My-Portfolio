@@ -6,6 +6,7 @@ function HomePage({ isDarkMode }) {
             name: 'SuperOne',
             description: 'A real-time game quiz platform engineered for high-throughput, low-latency play.',
             technologies: ['Node.Js','Sails/Express', 'Redis', 'SQS', 'MySQL/Neo4j', 'WebSockets'],
+            link: 'https://play.google.com/store/apps/details?id=com.superone&hl=en_IN&pli=1',
         },
         {
             name: 'RuvAI',
@@ -16,6 +17,7 @@ function HomePage({ isDarkMode }) {
             name: 'UbiquitousInfluence',
             description: 'Automated influencer payouts to close the loop from engagement to payment.',
             technologies: ['Node.Js','GraphQL/AppSync', 'Lambda', 'MongoDB', 'Stripe'],
+            link:'https://www.ubiquitousinfluence.com/'
         },
     ];
 
@@ -24,14 +26,17 @@ function HomePage({ isDarkMode }) {
             isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
         }`}>
             <div className="max-w-5xl mx-auto text-center">
-                {/* Hero Section */}
                 <div className="mb-16">
-                    {/* Greeting */}
-                    <h2 className={`text-lg font-medium mb-4 ${
-                        isDarkMode ? 'text-blue-400' : 'text-blue-600'
-                    }`}>
-                        Hello, I'm
-                    </h2>
+                    <div className="flex items-center justify-center mb-4">
+                        <div className="text-2xl animate-wave">
+                            👋
+                        </div>
+                        <h2 className={`text-lg font-medium mr-3 ${
+                            isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                        }`}>
+                            Hello, I'm
+                        </h2>
+                    </div>
                                         
                     <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
                         Abhishek Anand
@@ -40,19 +45,36 @@ function HomePage({ isDarkMode }) {
                     <h3 className={`text-2xl md:text-3xl font-semibold mb-8 ${
                         isDarkMode ? 'text-gray-300' : 'text-gray-700'
                     }`}>
-                        Software Engineer &mdash; Projects that don't blink 
-                        <span className="inline-block ml-2 animate-bounce">🤖</span>
+                        Building systems that scale beyond imagination
+                        <span className="inline-block ml-2 animate-bounce">⚡</span>
                     </h3>
 
-                    {/* Experience Description */}
                     <p className={`text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mb-12 ${
                         isDarkMode ? 'text-gray-400' : 'text-gray-300'
                     }`}>
-                        I’m a backend engineer who treats latency like a bug and scale like a design constraint. I craft event-driven, real-time systems in <span className="font-semibold text-green-400">Node.js</span> and <span className="font-semibold text-yellow-400">Python</span>, stitch microservices together with queues and streams, and tune them until they sing.
+                        I'm a Software engineer who treats latency like a bug and scale like a design constraint. I craft event-driven, real-time systems in <span className="font-semibold text-green-400">Node.js</span> and <span className="font-semibold text-yellow-400">Python</span>, stitch microservices together with queues and streams, and tune them until they sing.
                     </p>
-                </div>
 
-                {/* Projects Section */}
+                    <style jsx>{`
+                        @keyframes wave {
+                            0% { transform: rotate(0deg) translateX(0px); }
+                            10% { transform: rotate(14deg) translateX(2px); }
+                            20% { transform: rotate(-8deg) translateX(-2px); }
+                            30% { transform: rotate(14deg) translateX(2px); }
+                            40% { transform: rotate(-4deg) translateX(-1px); }
+                            50% { transform: rotate(10deg) translateX(1px); }
+                            60% { transform: rotate(0deg) translateX(0px); }
+                            100% { transform: rotate(0deg) translateX(0px); }
+                        }
+                        
+                        .animate-wave {
+                            animation: wave 2s ease-in-out infinite;
+                            transform-origin: 70% 70%;
+                            display: inline-block;
+                        }
+                    `}</style>
+                </div>
+                
                 <div className="mb-16">
                     <h4 className={`text-3xl font-bold mb-8 ${
                         isDarkMode ? 'text-white' : 'text-gray-800'
